@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+</head>
+    <style>
+
+        #cxh, #cxs, #cxm{
+            display: inline-block;
+            width: 200px;
+            height: 120px;
+            background-color: beige;
+            font-size: 6em;
+            text-align: center;
+            margin: auto;
+            border: 2px solid black;
+        }  
+
+        
+
+    </style>
+<body>
+        <div id="cxh">00</div>
+        <div id="cxm">00</div>
+        <div id="cxs">00</div>
+
+</body>
+
+
+    <script>
+            function contagem() {
+                setInterval(contagemsegundos, 1000)
+                setInterval(contagemminutos, 60000)
+                setInterval(contagemhoras, 3600000)
+                var numeroinicial = 0;
+                var numeroinicialm = 0;
+                var numeroinicialh = 0;
+
+                function contagemsegundos() {
+                    if (numeroinicial < 9) {
+                        numeroinicial++
+                        document.getElementById("cxs")
+                            .innerHTML = "0" + numeroinicial
+                    } else if (numeroinicial >= 9 &&
+                        numeroinicial < 59) {
+                        numeroinicial++
+                        document.getElementById("cxs")
+                            .innerHTML = numeroinicial
+                    } else {
+                        numeroinicial = 0
+                        document.getElementById("cxs")
+                            .innerHTML = "0" + numeroinicial
+                    }
+
+                }
+
+                function contagemminutos() {
+                    if (numeroinicialm < 9) {
+                        numeroinicialm++
+                        document.getElementById("cxm")
+                            .innerHTML = "0" + numeroinicialm
+                    } else if (numeroinicialm >= 9 &&
+                        numeroinicialm < 59) {
+                        numeroinicialm++
+                        document.getElementById("cxm")
+                            .innerHTML = numeroinicialm
+                    } else {
+                        numeroinicialm = 0
+                        document.getElementById("cxm")
+                            .innerHTML = "0" + numeroinicialm
+
+                    }
+                }
+
+                function contagemhoras() {
+                    if (numeroinicialh < 9) {
+                        numeroinicialh++
+                        document.getElementById("cxh")
+                            .innerHTML = "0" + numeroinicialh
+                    } else if (numeroinicialh >= 9 &&
+                        numeroinicialh < 59) {
+                        numeroinicialh++
+                        document.getElementById("cxh")
+                            .innerHTML = numeroinicialh
+                    } else {
+                        numeroinicialmlh = 0
+                        document.getElementById("cxh")
+                            .innerHTML = "0" + numeroinicialh
+
+                    }
+                }
+            }
+            window.addEventListener("load", contagem)
+    </script>
+</html>
